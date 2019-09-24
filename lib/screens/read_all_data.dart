@@ -46,7 +46,8 @@ class _ReadAllDataState extends State<ReadAllData> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          Row(mainAxisAlignment: MainAxisAlignment.start,
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               Text(
                 'id = ${imageModels[index].id}',
@@ -72,7 +73,7 @@ class _ReadAllDataState extends State<ReadAllData> {
 
   Widget pleaseWait() {
     return Center(
-      child: Text('Please Wait'),
+      child: CircularProgressIndicator(),
     );
   }
 
@@ -92,11 +93,8 @@ class _ReadAllDataState extends State<ReadAllData> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Read All Data'),
-      ),
-      body: imageModels.length != 0 ? showListView() : pleaseWait(),
+    return Container(
+      child: imageModels.length != 0 ? showListView() : pleaseWait(),
     );
   }
 }
